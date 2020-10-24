@@ -25,10 +25,10 @@ resource "aws_s3_bucket" "terraform_state" {
   }
 }
 
-resource "aws_dynamodb" "terraform_state_lock" {
+resource "aws_dynamodb_table" "terraform_state_lock" {
   name = "terraform-lock"
-  read_capcity = "5"
-  write_capcity = "5"
+  read_capacity = "5"
+  write_capacity = "5"
   hash_key = "LockID"
 
   attribute {
