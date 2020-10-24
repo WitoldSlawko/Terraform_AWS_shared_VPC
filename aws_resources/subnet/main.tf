@@ -1,35 +1,40 @@
-resource "aws_subnet" "pub_subnet_01" {
-    vpc_id  = aws_vpc.vpc.id
-    availability_zone = "us-east-1a"
-    cidr_block  = "10.83.16.0/20"
-    tags       = {
-        Name = "pub_sn_1-${var.deployment_name}"
-    }
+module "subnet" {
+    source = "../../modules/subnet"
+    count = length(lookup(var.subnet_entries, "subnet_names"))
+
+    subnet_name = element((lookup(var.subnet_entries, "subnet_names")), count.index)
+    availability_zone = element((lookup(var.subnet_entries, "availability_zones")), count.index)
+    cidr = element((lookup(var.subnet_entries, "cidr")), count.index)
 }
 
-resource "aws_subnet" "pub_subnet_02" {
-    vpc_id  = aws_vpc.vpc.id
-    availability_zone = "us-east-1b"
-    cidr_block  = "10.83.32.0/20"
-    tags       = {
-        Name = "pub_sn_2-${var.deployment_name}"
-    }
-}
+# module "public_subnet_01" {
+#     source = "../../modules/subnet"
 
-resource "aws_subnet" "prv_subnet_01" {
-    vpc_id  = aws_vpc.vpc.id
-    availability_zone = "us-east-1a"
-    cidr_block  = "10.83.64.0/20"
-     tags       = {
-        Name = "prv_sn_1-${var.deployment_name}"
-    }
-}
+#     subnet_name = "public_subnet_01"
+#     availability_zone = "us-east-1a"
+#     cidr = "10.83.16.0/20"
+# }
 
-resource "aws_subnet" "prv_subnet_02" {
-    vpc_id  = aws_vpc.vpc.id
-    availability_zone = "us-east-1b"
-    cidr_block  = "10.83.128.0/20"
-    tags       = {
-        Name = "prv_sn_2-${var.deployment_name}"
-    }
-}
+# module "public_subnet_02" {
+#     source = "../../modules/subnet"
+
+#     subnet_name = "public_subnet_02"
+#     availability_zone = "us-east-1b"
+#     cidr = "10.83.32.0/20"
+# }
+
+# module "private_subnet_01" {
+#     source = "../../modules/subnet"
+
+#     subnet_name = "private_subnet_01"
+#     availability_zone = "us-east-1a"
+#     cidr = "10.83.64.0/20"
+# }
+
+# module "private_subnet_02" {
+#     source = "../../modules/subnet"
+    
+#     subnet_name = "private_subnet_02"
+#     availability_zone = "us-east-1b"
+#     cidr = "10.83.128.0/20"
+# }
