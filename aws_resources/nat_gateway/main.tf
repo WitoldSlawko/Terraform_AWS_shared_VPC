@@ -2,7 +2,7 @@ module "nat_gateway" {
   source = "../../modules/nat_gateway"
   count = 2
 
-  name = "nat_gateway_${count.index + 1}"
+  nat_gw_name = "nat_gateway_${count.index + 1}"
   nat_gw_count = count.index
 }
 

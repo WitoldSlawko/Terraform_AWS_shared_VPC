@@ -6,7 +6,7 @@ terraform {
         key = "shared_vpc.tfstate"
         profile = "wiciu-admin"
         region = "us-east-1"
-        dynamodb_table = "terraform-lock"
+        dynamodb_table = "terraform_state_lock"
         encrypt = true
     }
 }

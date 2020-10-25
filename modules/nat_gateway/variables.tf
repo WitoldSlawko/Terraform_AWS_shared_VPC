@@ -1,4 +1,4 @@
-variable "nat_gateway_name" {
+variable "nat_gw_name" {
     type = string
 }
 

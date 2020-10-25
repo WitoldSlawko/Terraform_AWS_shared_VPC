@@ -1,10 +1,16 @@
 module "subnet" {
     source = "../../modules/subnet"
-    count = length(lookup(var.subnet_entries, "subnet_names"))
+    # count = length(local.subnet_entries)
+    for_each = local.subnet_entries
 
-    subnet_name = element((lookup(var.subnet_entries, "subnet_names")), count.index)
-    availability_zone = element((lookup(var.subnet_entries, "availability_zones")), count.index)
-    cidr = element((lookup(var.subnet_entries, "cidr")), count.index)
+    subnet_name = each.key
+    availability_zone = lookup(each.value, "availability_zone")
+    cidr = lookup(each.value, "cidr")
+    is_public = lookup(each.value, "is_public")
+    # subnet_name = element((lookup(var.subnet_entries, "subnet_names")), count.index)
+    # availability_zone = element((lookup(var.subnet_entries, "availability_zones")), count.index)
+    # cidr = element((lookup(var.subnet_entries, "cidrs")), count.index)
+    # is_public = element((lookup(var.subnet_entries, "publics")), count.index)
 }
 
 # module "public_subnet_01" {

@@ -9,3 +9,7 @@ variable "availability_zone" {
 variable "cidr" {
     type = string
 }
+
+variable "is_public" {
+    type = bool
+}

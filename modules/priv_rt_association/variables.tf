@@ -1,3 +1,3 @@
-variable "priv_rt_association" {
+variable "priv_rt_association_count" {
     type = number
 }
