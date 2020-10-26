@@ -1,3 +1,3 @@
-variable "elastic_ip_name" {
-    type = string
+variable "eip_deps" {
+    type = list
 }

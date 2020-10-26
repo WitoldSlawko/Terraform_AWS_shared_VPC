@@ -2,6 +2,10 @@ variable "private_route_table_name" {
     type = string
 }
 
-variable "private_route_table_count" {
-    type = number
+variable "vpc_id" {
+    type = string
+}
+
+variable "nat_gw_id" {
+    type = string
 }

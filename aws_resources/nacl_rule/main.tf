@@ -1,3 +1,0 @@
-module "nacl_rule" {
-    
-}

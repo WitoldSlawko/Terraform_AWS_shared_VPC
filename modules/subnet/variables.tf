@@ -13,3 +13,7 @@ variable "cidr" {
 variable "is_public" {
     type = bool
 }
+
+variable "subnet_vpc" {
+    type = string
+}
