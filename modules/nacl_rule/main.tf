@@ -8,3 +8,6 @@ resource "aws_network_acl_rule" "nacl_rule" {
     from_port      = var.nacl_rule_from_port
     to_port        = var.nacl_rule_from_port
 }
+
+
+## REFACTOR ME ##

@@ -1,6 +1,6 @@
 module "nat_gateway" {
   source = "./modules/nat_gateway"
-  for_each = toset(local.nat_gateway_entries)
+  for_each = local.nat_gateway_entries
 
   nat_gw_name = each.value
   nat_gw_subnet = module.subnet[each.key].subnet_id
@@ -9,5 +9,9 @@ module "nat_gateway" {
 }
 
 locals {
-  nat_gateway_entries = ["nat_gateway_01", "nat_gateway_02"]
+  nat_gateway_entries = {
+    "public-us-east-1a" = "nat_gateway_01"
+    "public-us-east-1b" = "nat_gateway_02"
+  }
+  # nat_gw_subnets = 
 }

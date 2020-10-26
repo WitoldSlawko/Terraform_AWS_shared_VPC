@@ -1,7 +1,15 @@
 resource "aws_network_acl" "nacl" {
   vpc_id = aws_vpc.vpc.id
-  subnet_ids = tolist(tostring(module.subnet[*].subnet_id))
+  subnet_ids = local.subnets_ids
 }
+
+locals {
+    subnets_ids = [
+        for subnet in module.subnet:
+        subnet.subnet_id
+    ]
+}
+## REFACTOR ME ##
 
 resource "aws_network_acl_rule" "http_nacl_rule_ingress" {
   network_acl_id = aws_network_acl.nacl.id

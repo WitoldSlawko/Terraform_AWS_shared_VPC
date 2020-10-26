@@ -11,25 +11,25 @@ module "subnet" {
 
 locals  {
     subnet_entries = {
-        "public_subnet_01" = {
+        "public-us-east-1a" = {
             "availability_zone" : "us-east-1a"
             "cidr": "10.83.16.0/20"
-            "public": true
+            "is_public": true
         },
-        "public_subnet_02" = {
+        "public-us-east-1b" = {
             "availability_zone" : "us-east-1b"
             "cidr": "10.83.32.0/20"
-            "public": true
+            "is_public": true
         },
-        "private_subnet_01" = {
+        "private-us-east-1a" = {
             "availability_zone" : "us-east-1a"
             "cidr": "10.83.64.0/20"
-            "public": false
+            "is_public": false
         },
-        "private_subnet_02" = {
+        "private-us-east-1b" = {
             "availability_zone" : "us-east-1b"
             "cidr": "10.83.128.0/20"
-            "public": false
+            "is_public": false
         }
     }
 }

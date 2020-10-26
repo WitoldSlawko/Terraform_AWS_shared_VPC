@@ -7,7 +7,7 @@ module "elastic_ip" {
 
 locals {
   eip_entries = {
-    "eip1" = "elastic_ip_01"
-    "eip2" = "elastic_ip_02"
+     "public-us-east-1a" = "elastic_ip_01"
+     "public-us-east-1b" = "elastic_ip_02"
   }
 }
