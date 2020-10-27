@@ -1,3 +1,7 @@
+variable "nacl_id" {
+    type = string
+}
+
 variable "nacl_rule_number" {
     type = number
 }
@@ -25,5 +29,3 @@ variable "nacl_rule_from_port" {
 variable "nacl_rule_to_port" {
     type = any
 }
-
-## REFACTOR ME ##
