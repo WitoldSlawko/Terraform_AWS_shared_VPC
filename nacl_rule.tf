@@ -1,5 +1,3 @@
-## REFACTOR ME ##
-
 module "nacl_rule" {
     source = "./modules/nacl_rule"
     for_each = local.nacl_rule_entries

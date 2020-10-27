@@ -1,5 +1,4 @@
 resource "aws_network_acl_rule" "nacl_rule" {
-    # network_acl_id = aws_network_acl.nacl.id
     network_acl_id = var.nacl_id
     rule_number    = var.nacl_rule_number
     egress         = var.nacl_rule_is_egress

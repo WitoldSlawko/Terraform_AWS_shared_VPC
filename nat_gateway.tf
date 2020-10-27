@@ -13,5 +13,4 @@ locals {
     "public-us-east-1a" = "nat_gateway_01"
     "public-us-east-1b" = "nat_gateway_02"
   }
-  # nat_gw_subnets = 
 }
